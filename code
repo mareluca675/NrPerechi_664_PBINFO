@@ -1,0 +1,39 @@
+#include <iostream>
+
+using namespace std;
+
+int main()
+{
+    int n, i, a, d;
+    
+    cin >> n;
+    
+    for(i = 1; i <= n; i ++)
+    {
+        cin >> a;
+        
+        int exponent = 0;
+        int perechi = 1;
+        
+        for(d = 2; d * d <= a; d ++)
+        {
+            while(a % d == 0)
+            {
+                a = a / d;
+                exponent ++;
+            }
+            
+            perechi = perechi * (exponent * 2 + 1); 
+            exponent = 0;
+        }
+        
+        if(a > 1)
+        {
+            perechi *= 3;
+        }
+        
+        cout << perechi << ' ';
+    }
+
+    return 0;
+}
